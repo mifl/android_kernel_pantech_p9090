@@ -1,0 +1,38 @@
+
+#Felica devices
+#
+menu "Felica Device Driver"
+config FELICA_DEVICES
+	bool "FeliCa devices"
+	default n
+	---help---
+	  You'll have to say Y if your computer contains an FeliCa device that
+	  you want to use under Linux.
+
+	  You can say N here if you don't have any Felica devices connected to your computer.
+
+if FELICA_DEVICES
+
+config CXD2235AGC_NFC_FELICA
+	tristate "Sony NFC and felica driver "
+	depends on SERIAL_MSM_HSL 
+	default n
+	---help---
+	  Say yes if you want Sony CXD2235 Near Field Communication driver.
+	  If unsure, say N here.
+
+	  To compile this driver as a module, choose m here. The module will
+	  be called cxd2235agc.
+
+config S7760A
+	tristate "PROGRAMJMABLE PORT CONTROLLER driver"
+	depends on FELICA_DEVICES
+	default n
+	---help---
+	 Say yes if you want S7760A driver.
+	 If unsure, say N here.
+	 
+	 To compile this driver as a module, choose m here. The module will
+	 be called s7760a
+endif # NFC_DEVICES
+endmenu

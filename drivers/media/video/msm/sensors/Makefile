@@ -1,0 +1,24 @@
+GCC_VERSION      := $(shell $(CONFIG_SHELL) $(PWD)/scripts/gcc-version.sh $(CROSS_COMPILE)gcc)
+EXTRA_CFLAGS += -Idrivers/media/video/msm
+EXTRA_CFLAGS += -Idrivers/media/video/msm/io
+EXTRA_CFLAGS += -Idrivers/media/video/msm/csi
+obj-$(CONFIG_MSM_CAMERA_SENSOR) += msm_sensor.o
+#obj-$(CONFIG_IMX074) += imx074_v4l2.o
+#obj-$(CONFIG_S5K3L1YX) += s5k3l1yx.o
+#obj-$(CONFIG_MT9M114) += mt9m114_v4l2.o
+#obj-$(CONFIG_OV2720) += ov2720.o
+#obj-$(CONFIG_S5K4E1) += s5k4e1_v4l2.o
+#obj-$(CONFIG_MT9E013) += mt9e013_v4l2.o
+#obj-$(CONFIG_WEBCAM_OV9726) += ov9726_v4l2.o
+obj-$(CONFIG_PANTECH_CAMERA_S5K4ECGX) += s5k4ecgx_r2_v4l2.o s5k4ecgx_cfg.o
+obj-$(CONFIG_PANTECH_CAMERA_MT9V113) += mt9v113_r2_v4l2.o  mt9v113_cfg.o
+obj-$(CONFIG_PANTECH_CAMERA_MT9D113) += mt9d113_r2_v4l2.o mt9d113_cfg.o
+obj-$(CONFIG_PANTECH_CAMERA_S5K6AAFX13) += s5k6aafx13_r2_v4l2.o s5k6aafx13_cfg.o
+obj-$(CONFIG_PANTECH_CAMERA_S5K3H2) += s5k3h2_v4l2.o
+obj-$(CONFIG_PANTECH_CAMERA_OV8820) += ov8820_v4l2.o
+obj-$(CONFIG_PANTECH_CAMERA_CE1502) += ce1502_v4l2.o
+obj-$(CONFIG_PANTECH_CAMERA_CE1612) += ce1612_v4l2.o
+obj-$(CONFIG_PANTECH_CAMERA_YACD5C1SBDBC) += yacd5c1sbdbc_v4l2.o
+obj-$(CONFIG_PANTECH_CAMERA) += sensor_i2c.o sensor_ctrl.o
+#PANTECH_CAMERA_TODO, CONFIG_PANTECH_CAMERA_TUNER
+obj-$(CONFIG_PANTECH_CAMERA_TUNER) += ptune_parser.o
